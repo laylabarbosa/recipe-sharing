@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{!-- Additional CSS styling for the home page --}}
+    <style>
+      .jumbotron {
+        margin-top: 20px;
+      }
+
+      img {
+        max-height: 500px;
+        min-width: 900px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    {{> header}}
+
+    <div class="jumbotron text-center">
+      <p class="lead">
+        Welcome to the Recipe Sharing Platform <br>
+        Here you can access recipes from all over the world, share your family's most delicious recipes, and creat new ones!
+      </p>
+
+      <img src="images/home-food-image.jpg" alt="Food">
+
+      <a class="btn btn-primary" href="/recipes" role="button">Discover</a>
+    </div>
+  </body>
+</html>

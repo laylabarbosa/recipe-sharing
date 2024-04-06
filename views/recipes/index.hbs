@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{!-- Additional CSS styling for the home page --}}
+    <style>
+      .title-holder {
+        margin: 20px 0px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    {{> header}}
+
+    <div class="title-holder">
+      <h2>{{title}}</h2>
+      <a class="btn btn-primary" href="/recipes/new" role="button">New recipe</a>
+    </div>
+
+    <div>
+      {{#if recipes}}
+        {{#each recipes}}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h3 class="card-title">{{this.title}}</h3>
+              <p class="card-subtitle mb-2 text-muted"><small class="text-muted">{{this.tags}}</small></p>
+              <p class="card-text">Ingredients: {{this.ingredients}}</p>
+              <p class="card-text">Instructions: {{this.instructions}}</p>
+
+              {{#if ../authenticated}}
+                <a href="/recipes/{{this._id}}/edit" class="card-link">Edit</a>
+                <a href="/recipes/{{this._id}}/delete" class="card-link">Delete</a>
+              {{else}}
+                <a href="/login" class="card-link">Login</a>
+                <span>or</span>
+                <a href="/signup" class="card-link">Sign Up</a>
+                <span>to edit or delete this recipe</span>
+              {{/if}}
+            </div>
+          </div>
+          </div>
+        {{/each}}
+      {{else}}
+        <p>No recipes found</p>
+      {{/if}}
+    </div>
+  </body>
+</html>
